@@ -5,7 +5,7 @@ from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-
+# TODO
 financiallines = Blueprint(
     'financiallines', 
     __name__,
@@ -14,6 +14,7 @@ financiallines = Blueprint(
 
 )
 
+# TODO
 @financiallines.before_request
 def before_request_func():
     # You can check the request path or other request properties here
@@ -21,8 +22,7 @@ def before_request_func():
 
 
 
-cache = Cache(config={'CACHE_TYPE': 'filesystem'})
-# Database URI
+# TODO
 DATABASE_URI = 'sqlite:///FinancialLines.db'
 
 # Set up the engine
@@ -31,7 +31,7 @@ engine = create_engine(DATABASE_URI)
 # Base class for your models
 Base = declarative_base()
 
-# Define your Entry model
+# DO NOT TAKE
 class Entry(Base):
     __tablename__ = 'Financiallines_todo'
 
@@ -67,6 +67,7 @@ def index():
     entries = session.query(Entry).all()
     return render_template('index.html', entries=entries)
 
+# REDIRECT and HTML todo /financiallines
 @financiallines.route('/add', methods=['POST'])
 def add():
     if request.method == 'POST':
